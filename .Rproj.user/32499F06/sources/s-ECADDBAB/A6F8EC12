@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1593055846448.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A6F8EC12",
+    "lastKnownWriteTime" : 1593027600,
+    "last_content_update" : 1593055870192,
+    "path" : "~/Documents/improving_statistical_inferences/week_2.2B.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "36,163",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

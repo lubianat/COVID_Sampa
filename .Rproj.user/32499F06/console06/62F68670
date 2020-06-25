@@ -1,0 +1,46 @@
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ gita dd[K[K[K[K add .
+fatal: not a git repository (or any of the parent directories): .git
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add .
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git set-[K[K[K[Kremote set-url 
+usage: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    --push                manipulate push URLs
+    --add                 add URL
+    --delete              delete URLs
+
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git remote set-url ggsave(p4, filename = "obitos_por_dia.png", devicce = "png")
+bash: syntax error near unexpected token `('
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git remote set-url ggsave(p4, filename = "obitos_por_dia.png", devicce = "png")[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cggsave(p4, filename = "obitos_por_dia.png", devicce = "png")[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit@github.com:lubianat/COVID_Sampa.git
+usage: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    --push                manipulate push URLs
+    --add                 add URL
+    --delete              delete URLs
+
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git remote set-url git@github.com:lubianat/COVID_Sampa.git[1P[1P[1P[1P[1P[1P[1P git@github.com:lubianat/COVID_Sampa.gita git@github.com:lubianat/COVID_Sampa.gitd git@github.com:lubianat/COVID_Sampa.gitd git@github.com:lubianat/COVID_Sampa.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=<push|fetch>]
+                          set up remote as a mirror to push to or fetch from
+
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git remote add git@github.com:lubianat/COVID_Sampa.git[1@s[1@e[1@t[1@-[1@u[1@r[2@kl[1P[1P[1@k[1@l[1P[1P[1@l[1@ 
+fatal: No such remote 'add'
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git remote set-url add git@github.com:lubianat/COVID_Sampa.git[1P[C[1P git@github.com:lubianat/COVID_Sampa.git[1P git@github.com:lubianat/COVID_Sampa.gito git@github.com:lubianat/COVID_Sampa.gitr git@github.com:lubianat/COVID_Sampa.giti git@github.com:lubianat/COVID_Sampa.gitg git@github.com:lubianat/COVID_Sampa.giti git@github.com:lubianat/COVID_Sampa.gitn git@github.com:lubianat/COVID_Sampa.git
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add. 
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add. [K[K . 
