@@ -2,20 +2,20 @@ library(httr)
 library(jsonlite)
 library(dplyr)
 library(tidyr)
- res = GET("https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place=")
-res
+
+# res = GET("https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place=")
+#write.csv(dados_sp, "dados_sp_hj.csv")
+
+
 
 data = fromJSON(rawToChar(res$content))
-
-
-
 dados_sp = data[["results"]]
 
+
+test = read.csv("dados_sp_hj.csv")
 dados_sp_selecionada = dados_sp %>% select(c("date", "last_available_confirmed", "last_available_deaths", "order_for_place"))
 
 colnames(dados_sp_selecionada) = c("Data", "Confirmações de casos", "Confirmações de óbitos", "Dia de contagem")
-
-
 library(ggplot2)
 library(plotly)
 

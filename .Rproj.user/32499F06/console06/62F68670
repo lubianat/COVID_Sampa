@@ -44,3 +44,54 @@ git: 'add.' is not a git command. See 'git --help'.
 The most similar command is
 	add
 ]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add. [K[K . 
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git commit -m "first commit"
+[master 0ef60d8] first commit
+ 38 files changed, 1351 insertions(+)
+ create mode 100644 .Rhistory
+ create mode 100644 .Rproj.user/32499F06/console06/62F68670
+ create mode 100644 .Rproj.user/32499F06/console06/62F68670.env
+ create mode 100644 .Rproj.user/32499F06/console06/INDEX001
+ create mode 100644 .Rproj.user/32499F06/pcs/files-pane.pper
+ create mode 100644 .Rproj.user/32499F06/pcs/source-pane.pper
+ create mode 100644 .Rproj.user/32499F06/pcs/windowlayoutstate.pper
+ create mode 100644 .Rproj.user/32499F06/pcs/workbench-pane.pper
+ create mode 100644 .Rproj.user/32499F06/rmd-outputs
+ create mode 100644 .Rproj.user/32499F06/saved_source_markers
+ create mode 100644 .Rproj.user/32499F06/sources/prop/4A99A87B
+ create mode 100644 .Rproj.user/32499F06/sources/prop/66128A89
+ create mode 100644 .Rproj.user/32499F06/sources/prop/A7711811
+ create mode 100644 .Rproj.user/32499F06/sources/prop/ED75C942
+ create mode 100644 .Rproj.user/32499F06/sources/prop/EF86CD94
+ create mode 100644 .Rproj.user/32499F06/sources/prop/INDEX
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/4BF37456
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/4BF37456-contents
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/A6F8EC12
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/A6F8EC12-contents
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/C751B7E1
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/C751B7E1-contents
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/C7DA102A
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/C7DA102A-contents
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/F5A27871
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/F5A27871-contents
+ create mode 100644 .Rproj.user/32499F06/sources/s-ECADDBAB/lock_file
+ create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
+ create mode 100644 .Rproj.user/shared/notebooks/paths
+ create mode 100644 .ipynb_checkpoints/brasil_io_to_plotly-checkpoint.R
+ create mode 100644 .ipynb_checkpoints/casos_cidade-checkpoint.Rproj
+ create mode 100644 .ipynb_checkpoints/python_trial-checkpoint.ipynb
+ create mode 100644 brasil_io_to_plotly.R
+ create mode 100644 casos.png
+ create mode 100644 casos_cidade.Rproj
+ create mode 100644 casos_por_dia.png
+ create mode 100644 obitos_por_dia.png
+ create mode 100644 python_trial.ipynb
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ gir[Kt push
+Counting objects: 46, done.
+Delta compression using up to 8 threads.
+Compressing objects:   2% (1/40)   Compressing objects:   5% (2/40)   Compressing objects:   7% (3/40)   Compressing objects:  10% (4/40)   Compressing objects:  12% (5/40)   Compressing objects:  15% (6/40)   Compressing objects:  17% (7/40)   Compressing objects:  20% (8/40)   Compressing objects:  22% (9/40)   Compressing objects:  25% (10/40)   Compressing objects:  27% (11/40)   Compressing objects:  30% (12/40)   Compressing objects:  32% (13/40)   Compressing objects:  35% (14/40)   Compressing objects:  37% (15/40)   Compressing objects:  40% (16/40)   Compressing objects:  42% (17/40)   Compressing objects:  45% (18/40)   Compressing objects:  47% (19/40)   Compressing objects:  50% (20/40)   Compressing objects:  52% (21/40)   Compressing objects:  55% (22/40)   Compressing objects:  57% (23/40)   Compressing objects:  60% (24/40)   Compressing objects:  62% (25/40)   Compressing objects:  65% (26/40)   Compressing objects:  67% (27/40)   Compressing objects:  70% (28/40)   Compressing objects:  72% (29/40)   Compressing objects:  75% (30/40)   Compressing objects:  77% (31/40)   Compressing objects:  80% (32/40)   Compressing objects:  82% (33/40)   Compressing objects:  85% (34/40)   Compressing objects:  87% (35/40)   Compressing objects:  90% (36/40)   Compressing objects:  92% (37/40)   Compressing objects:  95% (38/40)   Compressing objects:  97% (39/40)   Compressing objects: 100% (40/40)   Compressing objects: 100% (40/40), done.
+Writing objects:   2% (1/46)   Writing objects:   4% (2/46)   Writing objects:   6% (3/46)   Writing objects:   8% (4/46)   Writing objects:  10% (5/46)   Writing objects:  13% (6/46)   Writing objects:  15% (7/46)   Writing objects:  17% (8/46)   Writing objects:  19% (9/46)   Writing objects:  21% (10/46)   Writing objects:  23% (11/46)   Writing objects:  26% (12/46)   Writing objects:  28% (13/46)   Writing objects:  30% (14/46)   Writing objects:  32% (15/46)   Writing objects:  34% (16/46)   Writing objects:  36% (17/46)   Writing objects:  39% (18/46)   Writing objects:  41% (19/46)   Writing objects:  43% (20/46)   Writing objects:  45% (21/46)   Writing objects:  47% (22/46)   Writing objects:  50% (23/46)   Writing objects:  52% (24/46)   Writing objects:  54% (25/46)   Writing objects:  58% (27/46)   Writing objects:  60% (28/46)   Writing objects:  63% (29/46)   Writing objects:  65% (30/46)   Writing objects:  67% (31/46)   Writing objects:  69% (32/46)   Writing objects:  71% (33/46)   Writing objects:  73% (34/46)   Writing objects:  76% (35/46)   Writing objects:  78% (36/46)   Writing objects:  80% (37/46)   Writing objects:  82% (38/46)   Writing objects:  84% (39/46)   Writing objects:  86% (40/46)   Writing objects:  89% (41/46)   Writing objects:  91% (42/46)   Writing objects:  93% (43/46)   Writing objects:  95% (44/46)   Writing objects:  97% (45/46)   Writing objects: 100% (46/46)   Writing objects: 100% (46/46), 559.58 KiB | 4.55 MiB/s, done.
+Total 46 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/5)[Kremote: Resolving deltas:  20% (1/5)[Kremote: Resolving deltas: 100% (5/5)[Kremote: Resolving deltas: 100% (5/5), done.[K
+To github.com:lubianat/COVID_Sampa.git
+   eed508d..0ef60d8  master -> master
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add .
