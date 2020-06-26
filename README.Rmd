@@ -18,7 +18,7 @@ knitr::opts_chunk$set(fig.width=8, fig.height=4, fig.path='Figs/',
 
 
 
-Gráficos montados a partir de dados que o https://brasil.io compila com base nos [boletins diários da Secretaria de Saúde do Município de São Paulo](https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/vigilancia_em_saude/doencas_e_agravos/coronavirus/index.php?p=295572). 
+Gráficos montados a partir de dados que o https://brasil.io compila com base nos [boletins da Secretaria de Saúde do Estado de São Paulo](https://www.seade.gov.br/coronavirus/). 
 
 
 Pontos para cada dia, assim como uma linha de tendência feita por ["amaciamento de médias"](https://ggplot2.tidyverse.org/reference/geom_smooth.html) (*Smoothed conditional means*).

@@ -149,3 +149,18 @@ remote: Resolving deltas:   0% (0/7)[Kremote: Resolving deltas:  14% (1/7)[K
 To github.com:lubianat/COVID_Sampa.git
    1650d8e..028bada  master -> master
 ]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add .
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ gti[K[Kit commit -m '[K"mandando a saida do rmd para o diretorio correto"
+git[master 7ef9e94] mandando a saida do rmd para o diretorio correto
+ 5 files changed, 320 insertions(+), 4 deletions(-)
+ rewrite .Rproj.user/32499F06/console06/INDEX001 (85%)
+ create mode 100644 docs/index.html
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git push
+Counting objects: 11, done.
+Delta compression using up to 8 threads.
+Compressing objects:  10% (1/10)   Compressing objects:  20% (2/10)   Compressing objects:  30% (3/10)   Compressing objects:  40% (4/10)   Compressing objects:  50% (5/10)   Compressing objects:  60% (6/10)   Compressing objects:  70% (7/10)   Compressing objects:  80% (8/10)   Compressing objects:  90% (9/10)   Compressing objects: 100% (10/10)   Compressing objects: 100% (10/10), done.
+Writing objects:   9% (1/11)   Writing objects:  18% (2/11)   Writing objects:  27% (3/11)   Writing objects:  36% (4/11)   Writing objects:  45% (5/11)   Writing objects:  54% (6/11)   Writing objects:  63% (7/11)   Writing objects:  72% (8/11)   Writing objects:  81% (9/11)   Writing objects:  90% (10/11)   Writing objects:  90% (10/11), 1.30 MiB | 1.85 MiB/s   Writing objects: 100% (11/11), 1.30 MiB | 1.85 MiB/s   Writing objects: 100% (11/11), 1.73 MiB | 1.62 MiB/s, done.
+Total 11 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/6)[Kremote: Resolving deltas:  16% (1/6)[Kremote: Resolving deltas:  33% (2/6)[Kremote: Resolving deltas:  50% (3/6)[Kremote: Resolving deltas:  66% (4/6)[Kremote: Resolving deltas:  83% (5/6)[Kremote: Resolving deltas: 100% (6/6)[Kremote: Resolving deltas: 100% (6/6), completed with 6 local objects.[K
+To github.com:lubianat/COVID_Sampa.git
+   028bada..7ef9e94  master -> master
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add .
