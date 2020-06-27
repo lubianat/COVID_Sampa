@@ -164,3 +164,38 @@ remote: Resolving deltas:   0% (0/6)[Kremote: Resolving deltas:  16% (1/6)[K
 To github.com:lubianat/COVID_Sampa.git
    028bada..7ef9e94  master -> master
 ]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git add .
+git]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git commit -m "cod[Krrigindo referencia"
+g[master 30ed5f0] corrigindo referencia
+ 9 files changed, 34 insertions(+), 19 deletions(-)
+ rewrite .Rproj.user/32499F06/console06/INDEX001 (85%)
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git push
+To github.com:lubianat/COVID_Sampa.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:lubianat/COVID_Sampa.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ gitp[K pull
+remote: Enumerating objects: 5, done.[K
+remote: Counting objects:  20% (1/5)[Kremote: Counting objects:  40% (2/5)[Kremote: Counting objects:  60% (3/5)[Kremote: Counting objects:  80% (4/5)[Kremote: Counting objects: 100% (5/5)[Kremote: Counting objects: 100% (5/5), done.[K
+remote: Compressing objects:  33% (1/3)[Kremote: Compressing objects:  66% (2/3)[Kremote: Compressing objects: 100% (3/3)[Kremote: Compressing objects: 100% (3/3), done.[K
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0[K
+Unpacking objects:  33% (1/3)   Unpacking objects:  66% (2/3)   Unpacking objects: 100% (3/3)   Unpacking objects: 100% (3/3), done.
+From github.com:lubianat/COVID_Sampa
+   7ef9e94..2829bbf  master     -> origin/master
+hint: Waiting for your editor to close the file... [?2004h[23;0;0t[KMerge made by the 'recursive' strategy.
+ docs/_config.yml | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
+ create mode 100644 docs/_config.yml
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ git pullsh
+Counting objects: 19, done.
+Delta compression using up to 8 threads.
+Compressing objects:   6% (1/16)   Compressing objects:  12% (2/16)   Compressing objects:  18% (3/16)   Compressing objects:  25% (4/16)   Compressing objects:  31% (5/16)   Compressing objects:  37% (6/16)   Compressing objects:  43% (7/16)   Compressing objects:  50% (8/16)   Compressing objects:  56% (9/16)   Compressing objects:  62% (10/16)   Compressing objects:  68% (11/16)   Compressing objects:  75% (12/16)   Compressing objects:  81% (13/16)   Compressing objects:  87% (14/16)   Compressing objects:  93% (15/16)   Compressing objects: 100% (16/16)   Compressing objects: 100% (16/16), done.
+Writing objects:   5% (1/19)   Writing objects:  10% (2/19)   Writing objects:  15% (3/19)   Writing objects:  21% (4/19)   Writing objects:  26% (5/19)   Writing objects:  31% (6/19)   Writing objects:  36% (7/19)   Writing objects:  42% (8/19)   Writing objects:  47% (9/19)   Writing objects:  52% (10/19)   Writing objects:  57% (11/19)   Writing objects:  63% (12/19)   Writing objects:  68% (13/19)   Writing objects:  73% (14/19)   Writing objects:  78% (15/19)   Writing objects:  84% (16/19)   Writing objects:  89% (17/19)   Writing objects:  94% (18/19)   Writing objects: 100% (19/19)   Writing objects: 100% (19/19), 2.61 KiB | 2.61 MiB/s, done.
+Total 19 (delta 8), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  25% (2/8)[Kremote: Resolving deltas:  37% (3/8)[Kremote: Resolving deltas:  50% (4/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 7 local objects.[K
+To github.com:lubianat/COVID_Sampa.git
+   2829bbf..f858207  master -> master
+]0;/home/lubianat/Documents/casos_cidadelubianat@csbl-notebook:~/Documents/casos_cidade$ [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  [Klubianat@csbl-notebook:~/Documents/casos_cidade$  

@@ -29,13 +29,12 @@ library(jsonlite)
 library(dplyr)
 library(tidyr)
 
-# res = GET("https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place=")
-# write.csv(dados_sp, "dados_sp_hj.csv")
-# data = fromJSON(rawToChar(res$content))
-# dados_sp = data[["results"]]
+res = GET("https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place=")
+data = fromJSON(rawToChar(res$content))
+dados_sp = data[["results"]]
+write.csv(dados_sp, "dados_sp_hj.csv")
 
-
-dados_sp = read.csv("dados_sp_hj.csv")
+# dados_sp = read.csv("dados_sp_hj.csv")
 
 
 dados_sp_selecionada = dados_sp %>% select(c("date", "last_available_confirmed", "last_available_deaths", "order_for_place"))
@@ -48,31 +47,63 @@ library(plotly)
 dados_sp_selecionada["Casos por dia"] <- c(-(diff(dados_sp_selecionada[,"Casos Confirmados Cumulativos"])),0)
 dados_sp_selecionada["Óbitos Confirmados por dia"] <- c(-(diff(dados_sp_selecionada[,"Óbitos Confirmados Cumulativos"])),0)
 
-dados_sp_selecionada_long = pivot_longer(dados_sp_selecionada, 
+```
+
+
+```{r ajustando o tempo}
+library(lubridate)
+
+dados_sp_selecionada <- dados_sp_selecionada[complete.cases(dados_sp_selecionada), ]
+
+dados_sp_selecionada["Data"] <- as.Date(ymd(dados_sp_selecionada[["Data"]]))
+```
+
+```{r reshapando a tabela}
+dados_sp_selecionada_long <- pivot_longer(dados_sp_selecionada, 
                                          cols = c("Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Casos por dia", "Óbitos Confirmados por dia"),
                                          names_to = "Tipo",
                                          values_to = "Contagem")
 
+```
 
-ultima_data = dados_sp_selecionada_long[["Data"]][1]
-x_label = paste0('Contagem', " (até ", ultima_data, ")")
+
+```{r preparando figura}
+
+gerar_plot <- function(tabela_de_casos, titulo, rotulo_eixo_x, ref_cores){
+  p1 = ggplot(tabela_de_casos, aes(x=Data,
+                          y = Contagem,
+                          color = Tipo))    + 
+  geom_point(size = 1) + 
+  geom_smooth(size=2) +  
+  ggtitle(titulo)+
+  xlab(rotulo_eixo_x)+ 
+  labs(caption = "Fonte: Dados consolidados por Brasil IO a partir dos boletins da prefeitura ")  +       
+  scale_color_brewer(palette="Set1")+ 
+  scale_colour_discrete(drop=TRUE,
+        limits = levels(ref_cores))
+  return(p1)
+}
 
 ```
+
+
 
 ## Casos de COVID-19 por dia
 
 ```{r}
+
+classes_para_cor <- factor(dados_sp_selecionada_long$Tipo)
+
+dados_sp_selecionada_long["Data"] <- as.Date(dados_sp_selecionada_long[["Data"]])
 so_casos <- dados_sp_selecionada_long %>% filter(`Tipo` %in% c("Casos Confirmados Cumulativos", "Casos por dia"))
 
-p1 = ggplot(so_casos, aes(x=`Dia de contagem`,
-                          y = Contagem,
-                          color = Tipo,
-                          label = Data))    + 
-  geom_point(size = 1) + 
-  geom_smooth(size=2) +  
-  ggtitle ("Casos confirmados de COVID-19 na cidade de São Paulo")+
-  xlab(x_label)+ 
-  labs(caption = "Fonte: Dados consolidados por Brasil IO a partir dos boletins da prefeitura ")
+titulo_casos = "Casos confirmados de COVID-19 na cidade de São Paulo"
+
+
+ultima_data = dados_sp_selecionada_long[["Data"]][1]
+rotulo_eixo_x = paste0('Contagem', " (até ", ultima_data, ")")
+
+p1 = gerar_plot(so_casos, titulo_casos, rotulo_eixo_x, ref_cores = classes_para_cor)
 
 ggplotly(p1, tooltip = c("Contagem", "Data"))
 ```
@@ -80,15 +111,7 @@ ggplotly(p1, tooltip = c("Contagem", "Data"))
 ```{r}
 so_casos_por_dia <- dados_sp_selecionada_long %>% filter(`Tipo` %in% c("Casos por dia"))
 
-p2 = ggplot(so_casos_por_dia, aes(x=`Dia de contagem`,
-                          y = Contagem,
-                          color = Tipo,
-                          label = Data))    + 
-  geom_point(size = 1) + 
-  geom_smooth(size=2) +  
-  ggtitle ("Casos confirmados de COVID-19 na cidade de São Paulo")+
-  xlab(x_label)+ 
-  labs(caption = "Fonte: Dados consolidados por Brasil IO a partir dos boletins da prefeitura ")
+p2 = gerar_plot(so_casos_por_dia, titulo_casos, rotulo_eixo_x, ref_cores = classes_para_cor)
 
 ggplotly(p2, tooltip = c("Contagem", "Data"))
 ```
@@ -99,16 +122,10 @@ ggplotly(p2, tooltip = c("Contagem", "Data"))
 ```{r}
 so_obitos <- dados_sp_selecionada_long %>% filter(`Tipo` %in% c("Óbitos Confirmados Cumulativos", "Óbitos Confirmados por dia"))
 
-p3 = ggplot(so_obitos, aes(x=`Dia de contagem`,
-                          y = Contagem,
-                          color = Tipo,
-                          label = Data))    + 
-  geom_point(size = 1) + 
-  geom_smooth(size=2) + 
-  ggtitle ("Óbitos confirmados de COVID-19 na cidade de São Paulo")+
-  xlab(x_label)+ 
-  labs(caption = "Fonte: Dados consolidados por Brasil IO a partir dos boletins da prefeitura ")
 
+titulo_obitos = "Óbitos confirmados por COVID-19 na cidade de São Paulo"
+
+p3 = gerar_plot(so_obitos, titulo_obitos, rotulo_eixo_x, ref_cores = classes_para_cor)
 ggplotly(p3, tooltip = c("Contagem", "Data"))
 
 ```
@@ -116,16 +133,8 @@ ggplotly(p3, tooltip = c("Contagem", "Data"))
 
 ```{r}
 so_obitos_diarios <- dados_sp_selecionada_long %>% filter(`Tipo` %in% c("Óbitos Confirmados por dia"))
-p4 = ggplot(so_obitos_diarios, aes(x=`Dia de contagem`,
-                          y = Contagem,
-                          color = Tipo,
-                          label = Data))    + 
-  geom_point(size = 1) + 
-  geom_smooth(size=2) + 
-  ggtitle ("Óbitos confirmados de COVID-19 na cidade de São Paulo")+
-  xlab(x_label)+ 
-  labs(caption = "Fonte: Dados consolidados por Brasil IO a partir dos boletins da prefeitura ")
 
+p4 = gerar_plot(so_obitos_diarios, titulo_obitos, rotulo_eixo_x, ref_cores = classes_para_cor)
 ggplotly(p4, tooltip = c("Contagem", "Data"))
 ```
 

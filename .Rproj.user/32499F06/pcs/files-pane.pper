@@ -1,9 +1,9 @@
 {
-    "path" : "~/Documents/casos_cidade",
-    "sortOrder" : [
+    "path": "~/Documents/casos_cidade",
+    "sortOrder": [
         {
-            "ascending" : false,
-            "columnIndex" : 2
+            "columnIndex": 2,
+            "ascending": false
         }
     ]
 }
