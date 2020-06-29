@@ -78,8 +78,8 @@ gerar_plot <- function(tabela_de_casos, titulo, rotulo_eixo_x, ref_cores){
   ggtitle(titulo)+
   xlab(rotulo_eixo_x)+ 
   labs(caption = "Fonte: Dados consolidados por Brasil IO a partir dos boletins da prefeitura ")  +       
-  scale_color_brewer(palette="Set1")+ 
-  scale_colour_discrete(drop=TRUE,
+  
+  scale_discrete_manual(aesthetics = c("color"), drop=TRUE, values= c( "gold4", "gold3", "firebrick4", "firebrick3" ),
         limits = levels(ref_cores))
   return(p1)
 }
