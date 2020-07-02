@@ -23,40 +23,13 @@ library(lubridate)
 theme_set(theme_bw(base_family = "Roboto"))
 ```
 
-```{r, limpando, echo=FALSE, include=FALSE}
-res <- GET("https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place=")
-data <- fromJSON(rawToChar(res$content))
-dados_sp <- data[["results"]]
-# write.csv(dados_sp, "dados_sp_hj.csv")
 
-# dados_sp = read.csv("dados_sp_hj.csv")
+```{r funções auxiliares}
 
+pegar_valor_por_dia <- function(valores_cumulativos){
+ return(c(-(diff(valores_cumulativos)), 0))
+}
 
-dados_sp_selecionada <- dados_sp %>% 
-  select(c("date", "last_available_confirmed", "last_available_deaths", "order_for_place")) %>% 
-  setNames(c("Data", "Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Dia de contagem"))
-
-
-dados_sp_selecionada["Casos por dia"] <- c(-(diff(dados_sp_selecionada[, "Casos Confirmados Cumulativos"])), 0)
-dados_sp_selecionada["Óbitos Confirmados por dia"] <- c(-(diff(dados_sp_selecionada[, "Óbitos Confirmados Cumulativos"])), 0)
-```
-
-```{r ajustando o tempo, include=FALSE}
-dados_sp_selecionada <- dados_sp_selecionada[complete.cases(dados_sp_selecionada), ]
-
-dados_sp_selecionada["Data"] <- as.Date(ymd(dados_sp_selecionada[["Data"]]))
-```
-
-```{r reshapando a tabela, include=FALSE}
-dados_sp_selecionada_long <- pivot_longer(dados_sp_selecionada,
-  cols = c("Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Casos por dia", "Óbitos Confirmados por dia"),
-  names_to = "Tipo",
-  values_to = "Contagem"
-)
-```
-
-
-```{r preparando figura, include=FALSE}
 gerar_plot <- function(tabela_de_casos, rotulo_eixo_x, ref_cores) {
   p1 <- ggplot(tabela_de_casos, aes(
     x = Data,
@@ -73,6 +46,38 @@ gerar_plot <- function(tabela_de_casos, rotulo_eixo_x, ref_cores) {
     )
   return(p1)
 }
+
+```
+
+```{r, limpando, echo=FALSE, include=FALSE}
+res <- GET("https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place=")
+data <- fromJSON(rawToChar(res$content))
+dados_sp <- data[["results"]]
+
+# write.csv(dados_sp, "dados_sp_hj.csv")
+# dados_sp = read.csv("dados_sp_hj.csv")
+
+
+dados_sp_selecionada <- dados_sp %>% 
+  select(c("date", "last_available_confirmed", "last_available_deaths", "order_for_place")) %>% 
+  setNames(c("Data", "Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Dia de contagem"))
+
+dados_sp_selecionada["Casos por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Casos Confirmados Cumulativos"]) 
+dados_sp_selecionada["Óbitos Confirmados por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Óbitos Confirmados Cumulativos"]) 
+```
+
+```{r ajustando o tempo, include=FALSE}
+dados_sp_selecionada <- dados_sp_selecionada[complete.cases(dados_sp_selecionada), ]
+
+dados_sp_selecionada["Data"] <- as.Date(ymd(dados_sp_selecionada[["Data"]]))
+```
+
+```{r reshapando a tabela, include=FALSE}
+dados_sp_selecionada_long <- pivot_longer(dados_sp_selecionada,
+  cols = c("Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Casos por dia", "Óbitos Confirmados por dia"),
+  names_to = "Tipo",
+  values_to = "Contagem"
+)
 ```
 
 Column {data-width=500}
