@@ -50,26 +50,30 @@ gerar_plot <- function(tabela_de_casos, rotulo_eixo_x, ref_cores) {
 ```
 
 ```{r, limpando, echo=FALSE, include=FALSE}
-res <- GET("https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place=")
-data <- fromJSON(rawToChar(res$content))
-dados_sp <- data[["results"]]
+url <- "https://brasil.io/api/dataset/covid19/caso_full/data/?search=&date=&state=&city=S%C3%A3o+Paulo&place_type=&is_last=&city_ibge_code=&order_for_place="
+
+resdados_sp <- GET(url) %>% 
+  content() %>% 
+  '[['("results") %>% 
+  purrr::map(as_tibble) %>% 
+  bind_rows()
 
 # write.csv(dados_sp, "dados_sp_hj.csv")
 # dados_sp = read.csv("dados_sp_hj.csv")
 
-
-dados_sp_selecionada <- dados_sp %>% 
+dados_sp_selecionada <- resdados_sp %>% 
   select(c("date", "last_available_confirmed", "last_available_deaths", "order_for_place")) %>% 
-  setNames(c("Data", "Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Dia de contagem"))
+  setNames(c("Data", "Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Dia de contagem")) %>% 
+  as.data.frame() # Cause diff doesn't work on tibbles
 
 dados_sp_selecionada["Casos por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Casos Confirmados Cumulativos"]) 
 dados_sp_selecionada["Óbitos Confirmados por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Óbitos Confirmados Cumulativos"]) 
 ```
 
 ```{r ajustando o tempo, include=FALSE}
-dados_sp_selecionada <- dados_sp_selecionada[complete.cases(dados_sp_selecionada), ]
-
-dados_sp_selecionada["Data"] <- as.Date(ymd(dados_sp_selecionada[["Data"]]))
+dados_sp_selecionada <- dados_sp_selecionada %>% 
+  drop_na() %>% 
+  mutate(Data = as.Date(ymd(Data)))
 ```
 
 ```{r reshapando a tabela, include=FALSE}
