@@ -63,11 +63,11 @@ resdados_sp <- GET(url) %>%
 
 dados_sp_selecionada <- resdados_sp %>% 
   select(c("date", "last_available_confirmed", "last_available_deaths", "order_for_place")) %>% 
-  setNames(c("Data", "Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Dia de contagem")) %>% 
+  setNames(c("Data", "Registros de caso cumulativos", "Registros de óbito cumulativos", "Dia de contagem")) %>% 
   as.data.frame() # Cause diff doesn't work on tibbles
 
-dados_sp_selecionada["Casos por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Casos Confirmados Cumulativos"]) 
-dados_sp_selecionada["Óbitos Confirmados por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Óbitos Confirmados Cumulativos"]) 
+dados_sp_selecionada["Registros de caso por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Registros de caso cumulativos"]) 
+dados_sp_selecionada["Registros de óbito por dia"] <- pegar_valor_por_dia(dados_sp_selecionada[, "Registros de óbito cumulativos"]) 
 ```
 
 ```{r ajustando o tempo, include=FALSE}
@@ -78,7 +78,7 @@ dados_sp_selecionada <- dados_sp_selecionada %>%
 
 ```{r reshapando a tabela, include=FALSE}
 dados_sp_selecionada_long <- pivot_longer(dados_sp_selecionada,
-  cols = c("Casos Confirmados Cumulativos", "Óbitos Confirmados Cumulativos", "Casos por dia", "Óbitos Confirmados por dia"),
+  cols = c("Registros de caso cumulativos", "Registros de óbito cumulativos", "Registros de caso por dia", "Registros de óbito por dia"),
   names_to = "Tipo",
   values_to = "Contagem"
 )
@@ -94,10 +94,12 @@ classes_para_cor <- factor(dados_sp_selecionada_long$Tipo)
 
 dados_sp_selecionada_long["Data"] <- as.Date(dados_sp_selecionada_long[["Data"]])
 so_casos <- dados_sp_selecionada_long %>% 
-  filter(`Tipo` %in% c("Casos Confirmados Cumulativos", "Casos por dia"))
+  filter(`Tipo` %in% c("Registros de caso cumulativos", "Registros de caso por dia"))
 
 ultima_data <- dados_sp_selecionada_long[["Data"]][1]
-rotulo_eixo_x <- paste0("Contagem", " (até ", ultima_data, ")")
+
+
+rotulo_eixo_x <- paste0("Data", " (dados até ", ultima_data, ")")
 
 p1 <- gerar_plot(so_casos, rotulo_eixo_x, ref_cores = classes_para_cor)
 
@@ -108,7 +110,7 @@ ggplotly(p1, tooltip = c("Contagem", "Data"))
 
 ```{r}
 so_casos_por_dia <- dados_sp_selecionada_long %>%
-  filter(`Tipo` %in% c("Casos por dia"))
+  filter(`Tipo` %in% c("Registros de caso por dia"))
 
 p2 <- gerar_plot(so_casos_por_dia, rotulo_eixo_x, ref_cores = classes_para_cor)
 
@@ -122,7 +124,7 @@ Column {data-width=500}
 
 ```{r}
 so_obitos <- dados_sp_selecionada_long %>% 
-  filter(`Tipo` %in% c("Óbitos Confirmados Cumulativos", "Óbitos Confirmados por dia"))
+  filter(`Tipo` %in% c("Registros de óbito cumulativos", "Registros de óbito por dia"))
 
 p3 <- gerar_plot(so_obitos, rotulo_eixo_x, ref_cores = classes_para_cor)
 ggplotly(p3, tooltip = c("Contagem", "Data"))
@@ -132,7 +134,7 @@ ggplotly(p3, tooltip = c("Contagem", "Data"))
 
 ```{r}
 so_obitos_diarios <- dados_sp_selecionada_long %>% 
-  filter(`Tipo` %in% c("Óbitos Confirmados por dia"))
+  filter(`Tipo` %in% c("Registros de óbito por dia"))
 
 p4 <- gerar_plot(so_obitos_diarios, rotulo_eixo_x, ref_cores = classes_para_cor)
 ggplotly(p4, tooltip = c("Contagem", "Data"))
